@@ -91,7 +91,7 @@ nav{
     border: 2px solid transparent;
     margin-right: 15px;
     padding: 10px 12px;
-    border-radius: 30%;
+    border-radius: 25%;
     border-image: linear-gradient(45deg, #ff0,#0ff, #f0f);
     border-image-slice: 1;
 }

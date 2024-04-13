@@ -30,7 +30,7 @@ inputbox.onkeyup =function()
 function display(result){
     const content = result.map((list)=>{
         //Pass the clicked keyword as an argument to the selectInput function
-        return "<li onclick=selectInput("+list.trim()+")>" +list+"</li>";
+        return "<li onclick=\"selectInput('"+list.trim()+"')\">" +list+"</li>";
     });
 
     resultsBox.innerHTML= "<ul>" +content.join('')+"</ul>";
