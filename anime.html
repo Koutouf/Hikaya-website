@@ -33,33 +33,27 @@
         </div>  
     </nav>
 <!--main-->
-    <div class="main">
-        <div class="containers">
-            <article class="postEP">
-                <div class="col">
-                    <div class="block-post">
-                        <a href="#" title="قصص الانسان في القرآن" class="video-link" data-video-id="VIDEO_ID_1">
-                            <div class="poster">
-                                <div class="imgBg">
-                                    <img src="images/humaninQorran.jpg" alt="قصص الانسان في القرآن">
-                                </div>
-                            </div>
-                            <div class="title">قصص الانسان في القرآن</div>
-                        </a>
-                        <div class="playlist-container">
-                            <h2>قائمة التشغيل</h2>
-                            <ul class="playlist" id="playlist">
-                              <!-- Playlist items will be dynamically generated here -->
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        </div>  
+    <div id="playlistSelector">
+        <div class="playlistItem" id="playlist1" onclick="showPlaylist('playlist1')">
+            <img src="/images/humaninQorran.jpg" alt="Playlist 1">
+            <p>قصص الانسان في القراَن</p>
+        </div>
+        <div class="playlistItem" id="playlist2" onclick="showPlaylist('playlist2')">
+            <img src="/images/animalsinQorran.jpg" alt="Playlist 2">
+            <p>قصص الحيوان في القرآن</p>
+        </div>
+        <!-- Add two more playlist items with images and descriptions -->
     </div>
-    <div class="video-player">
-        <iframe id="videoFrame" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+
+    <div id="playerContainer">
+        <div id="player"></div>
+        <!-- The YouTube player will be loaded here -->
     </div>
+    <div id="playlistContainer" class="playlist">
+            <ul id="playlist"></ul>
+    </div>
+
+    <div id="overlay"></div>
 
     <script src="scriptan.js"></script>
     <script src="search.js"></script>

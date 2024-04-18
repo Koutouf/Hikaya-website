@@ -1,0 +1,44 @@
+#playlistSelector {
+    display: flex;
+    justify-content: space-around;
+}
+
+.playlistItem {
+    cursor: pointer;
+}
+
+.playlistItem img {
+    width: 200px;
+    height: auto;
+}
+
+.playlistItem p {
+    text-align: center;
+}
+
+.playlist {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #fff;
+    z-index: 100;
+}
+
+#playerContainer {
+    position: relative;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 99;
+}
