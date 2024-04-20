@@ -1,3 +1,4 @@
+
 let players = {};
 
 // Function to load the YouTube Player API asynchronously
@@ -28,7 +29,9 @@ function onYouTubeIframeAPIReady() {
     // Load default playlists
     createYouTubePlayer('PLirNyJOCDA1xHk5rcwlZUzi_fT9uNKU8g', 'playlist1');
     createYouTubePlayer('PLhIKf_ywHzdyb5bfY1UPDzF7EPz_56qE3', 'playlist2');
-    // Load additional playlists if needed
+    createYouTubePlayer('rfbd68nNSI4&list=PLJ0WU3XQoz4-x5FPOHh3s8nRkeal-4ED7', 'playlist3');
+    createYouTubePlayer('nbilq32cWn0&list=PLJ0WU3XQoz48dYxaKhohHdaN-DDlTAIx3', 'playlist4');
+    createYouTubePlayer('PLBKCKwPphJ34kTHHy-3nlVNNcVi5Bodai', 'playlist5');
 }
 
 
@@ -40,7 +43,7 @@ function showPlaylist(containerId) {
         item.style.display = 'none';
     });
     // Show the selected playlist
-    const playlist = document.getElementById(containerId + 'Container');
+    const playlist1 = document.getElementById(containerId);
     playlist.style.display = 'block';
 }
 
@@ -53,5 +56,35 @@ function onPlayerReady(event) {
         }
     }
 }
+
 // Load the YouTube Player API
 loadYouTubePlayerAPI();
+// Function to show playlist selector after the page has fully loaded
+window.addEventListener('load', function() {
+    const playlistSelector = document.getElementById('playlistSelector');
+    playlistSelector.style.display = 'flex';
+    // Show the default playlist initially
+    showPlaylist('playlist1');
+    });
+
+    // Function to enlarge the video player
+function enlargePlayer() {
+    const playerContainer = document.getElementById('playerContainer');
+    const overlay = document.getElementById('overlay');
+
+    playerContainer.classList.add('enlarged');
+    overlay.style.display = 'block';
+}
+
+// Function to shrink the video player
+function shrinkPlayer() {
+    const playerContainer = document.getElementById('playerContainer');
+    const overlay = document.getElementById('overlay');
+
+    playerContainer.classList.remove('enlarged');
+    overlay.style.display = 'none';
+}
+
+
+
+

@@ -1,8 +1,10 @@
+/* Hide playlist selector by default */
 #playlistSelector {
   display: flex;
   justify-content: space-around;
 }
 
+/* Style playlist items */
 .playlistItem {
   cursor: pointer;
 }
@@ -16,6 +18,7 @@
   text-align: center;
 }
 
+/* Hide playlist by default */
 .playlist {
   display: none;
   position: absolute;
@@ -28,10 +31,12 @@
   z-index: 100;
 }
 
+/* Container for YouTube player */
 #playerContainer {
   position: relative;
 }
 
+/* Overlay for fullscreen video */
 #overlay {
   position: fixed;
   top: 0;
