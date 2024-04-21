@@ -8,37 +8,53 @@
     <script src="playlist.js" defer></script>
 </head>
 <body>
-    <div id="playlistSelector">
-        <div class="playlistItem" id="playlist1" onclick="showPlaylist('playlist1')">
+    <div  class="playcartoon" id="playlistSelector">
+        <div class="playlistItem" id="playlist1Item" >
             <img src="/images/humaninQorran.jpg" alt="Playlist 1">
             <p>قصص الانسان في القرآن</p>
         </div>
-        <div class="playlistItem" id="playlist2" onclick="showPlaylist('playlist2')">
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="playlistItem" id="playlist2Item" >
             <img src="/images/animalsinQorran.jpg" alt="Playlist 2">
             <p>قصص الحيوان في القرآن</p>
         </div>
-        <div class="playlistItem" id="playlist3" onclick="showPlaylist('playlist3')">
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="playlistItem" id="playlist3Item" >
             <img src="/images/ayatin.jpg" alt="Playlist 3">
             <p>قصص الأيات في القرآن</p>
         </div>
-        <div class="playlistItem" id="playlist4" onclick="showPlaylist('playlist4')">
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="playlistItem" id="playlist4Item" >
             <img src="/images/womeninQorran.jpg" alt="Playlist 4">
             <p>قصص النساء في القرآن</p>
         </div>
-        <div class="playlistItem" id="playlist5" onclick="showPlaylist('playlist5')" >
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="playlistItem" id="playlist5Item"  >
             <img src="/images/Wondrous_Stories_from_the_Quran_Poster.jpg" alt="Playlist 5">
             <p>قصص العجائب في القرآن</p>
         </div>
     </div>
-
+    
     <div id="playerContainer">
-        <div id="player"></div>
-        <!-- The YouTube player will be loaded here -->
+        <div id="playlist1Container" class="playlist"></div>
+        <div id="playlist2Container" class="playlist"></div>
+        <div id="playlist3Container" class="playlist"></div>
+        <div id="playlist4Container" class="playlist"></div>
+        <div id="playlist5Container" class="playlist"></div>
     </div>
-    <div id="playlistContainer" class="playlist">
-            <ul id="playlist"></ul>
-    </div>
-
+    
     <div id="overlay"></div>
     
 </body>
