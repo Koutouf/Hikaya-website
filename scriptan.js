@@ -35,6 +35,13 @@ function togglePlaylist(containerId) {
     const playlistContainer = document.getElementById(containerId);
     playlistContainer.classList.toggle('showPlaylist');
 }
+// Function to play the video in the player when a playlist item is clicked
+function playVideo(playlistId, containerId) {
+    players[containerId].loadPlaylist({
+        listType: 'playlist',
+        list: playlistId
+    });
+}
 
 // Load the YouTube Player API
 loadYouTubePlayerAPI();
@@ -46,6 +53,7 @@ window.addEventListener('load', function() {
         item.addEventListener('click', function() {
             const containerId = item.id.replace('Item', 'Container');
             togglePlaylist(containerId);
+            playVideo(item.dataset.playlistId, containerId);
         });
     });
 });

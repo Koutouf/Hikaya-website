@@ -4,35 +4,49 @@
   justify-content: space-around;
 }
 
-/* Style playlist items */
-.playcartoon{
-  padding-right: 25%;
-}
+/* Style for playlist items */
 .playlistItem {
+  display: block;
+  margin-bottom: 20px;
+  border: 2px solid #ccc;
+  padding: 10px;
+  width: 500px; /* Adjust width as needed */
   cursor: pointer;
-  border: 2px dashed;
 }
 
+/* Style for playlist container */
+.playlistContainer {
+  display: none;
+  border: 2px solid black;
+  padding: 10px;
+  width: 640px; /* Adjust width as needed */
+}
+
+/* Ensure images fill the container */
 .playlistItem img {
-  width: 200px;
-  
+  width: 100%;
+  height: auto;
 }
 
-.playlistItem p {
-  text-align: center;
-
+/* Show playlist container when class is applied */
+.showPlaylist {
+  display: block;
 }
-.playlistItem{
-  padding-top: 10px;
-  width: 500px;  
-  height: 300px;
-  background-color: rgb(90, 195, 243);
-  border-radius: 50px;
-  text-align: center;
 
+/* Ensure the layout doesn't change on smaller screens */
+@media only screen and (max-width: 768px) {
+  .playlistItem {
+      width: 100%; /* Full width on smaller screens */
+  }
+
+  .playlistContainer {
+      width: 100%; /* Full width on smaller screens */
+  }
 }
+
 /* Hide playlist by default */
 .playlist {
+  display: none;
   position: absolute;
   top: 100%;
   left: 0;
@@ -59,6 +73,12 @@
   display: none;
   z-index: 99;
 }
+.playlistContainer {
+  display: none;
+  border: 2px solid black; /* Add border styling */
+  padding: 10px; /* Add padding for spacing */
+}
+
 .showPlaylist {
   display: block;
 }
