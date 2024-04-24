@@ -42,6 +42,7 @@ function playVideo(playlistId, containerId) {
         list: playlistId
     });
 }
+document.addEventListener('DOMContentLoaded', loadYouTubePlayerAPI);
 
 // Load the YouTube Player API
 loadYouTubePlayerAPI();

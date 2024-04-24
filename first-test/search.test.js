@@ -1,47 +1,52 @@
-// Import the module you want to test
-const { display, selectInput } = require('../search.js');
+// Import the functions to be tested
+const { display, selectInput } = require('./yourScriptFile.js');
 
-// Mock document.querySelector to simulate DOM elements
-document.querySelector = jest.fn();
+describe('Keyword Search and Selection', () => {
+  let mockResultBox;
+  let mockInputBox;
 
-// Mock window.location.replace
-global.window.location.replace = jest.fn();
+  beforeEach(() => {
+    // Create a mock HTML structure
+    document.body.innerHTML = `
+      <div class="resultbox"></div>
+      <input class="input-box" type="text">
+    `;
+    
+    // Assign the mock DOM elements
+    mockResultBox = document.querySelector('.resultbox');
+    mockInputBox = document.querySelector('.input-box');
+  });
 
-describe('display', () => {
-    it('should display the provided list of keywords', () => {
-        // Mock result box element
-        const mockResultBox = {
-            innerHTML: ''
-        };
+  afterEach(() => {
+    // Clear the document body after each test
+    document.body.innerHTML = '';
+  });
 
-        // Call the display function with sample data
-        const sampleData = ['الرئيسية', 'صور متحركة'];
-        display(sampleData);
+    test('Displaying filtered keywords', () => {
+    // Simulate user input
+    mockInputBox.value = 'أ';
+    mockInputBox.dispatchEvent(new Event('keyup'));
 
-        // Check if the resultsBox contains the expected content
-        expect(mockResultBox.innerHTML).toBe('<ul><li onclick="selectInput(\'الرئيسية\')">الرئيسية</li><li onclick="selectInput(\'صور متحركة\')">صور متحركة</li></ul>');
-    });
+    // Check if the result box contains the expected keywords
+    expect(mockResultBox.innerHTML).toContain('<li onclick="selectInput(\'الرئيسية\')">الرئيسية</li>');
+    expect(mockResultBox.innerHTML).toContain('<li onclick="selectInput(\'أغاني أطفال\')">أغاني أطفال</li>');
+
+    // Clear the input
+    mockInputBox.value = '';
+    mockInputBox.dispatchEvent(new Event('keyup'));
+
+    // Check if the result box is cleared
+    expect(mockResultBox.innerHTML).toBe('');
+  });
+
+  test('Selecting a keyword', () => {
+    // Simulate clicking on a keyword
+    selectInput('الرئيسية');
+
+    // Check if the correct action is performed
+    expect(window.location.replace).toHaveBeenCalledWith('7ikeya.html');
+    expect(mockResultBox.innerHTML).toBe('');
+  });
+
 });
 
-describe('selectInput', () => {
-    it('should redirect to the appropriate page based on the selected keyword', () => {
-        // Call the selectInput function with a sample keyword
-        selectInput('الرئيسية');
-
-        // Check if window.location.replace was called with the expected URL
-        expect(window.location.replace).toHaveBeenCalledWith('7ikeya.html');
-    });
-
-    it('should clear the result box after selecting a keyword', () => {
-        // Mock result box element
-        const mockResultBox = {
-            innerHTML: ''
-        };
-
-        // Call the selectInput function with a sample keyword
-        selectInput('الرئيسية');
-
-        // Check if the result box is cleared
-        expect(mockResultBox.innerHTML).toBe('');
-    });
-});
